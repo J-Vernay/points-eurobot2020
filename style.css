@@ -1,0 +1,12 @@
+input[readonly] {
+    background-color: #FF000040 !important;
+
+}
+input[readonly][data-valid] {
+    background-color: #00000000 !important;
+}
+
+label {
+    padding-top: 20px;
+    font-weight: 600;
+}
