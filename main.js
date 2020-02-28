@@ -1,5 +1,10 @@
 
-
+function hideIfEmpty(elem) {
+    if (elem.innerHTML === "")
+        elem.setAttribute("hidden","");
+    else
+        elem.removeAttribute("hidden");
+}
 function getValidator(type) {
     switch (type) {
     case "port":
@@ -14,12 +19,20 @@ function getValidator(type) {
             if (2*nbPaires > nbChenaux)
                 errMes.innerHTML += "<li>+ de paires comptées que de paires possibles avec les gobelets des chenaux</li>";
             
-            
-            if (errMes.innerHTML === "")
-                errMes.setAttribute("hidden","");
-            else
-                errMes.removeAttribute("hidden");
+            hideIfEmpty(errMes);
         };
+    case "mancheaair":
+        return function(form) {
+            const nbManchesaAir = parseInt(form.querySelector('[name="nbManchesaAir"]').value);
+            const errMes = form.querySelector('ul.alert');
+            errMes.innerHTML = "";
+            if (nbManchesaAir < 0)
+                errMes.innerHTML += "<li>Nombre de manches à air &lt; 0</li>";
+            else if (nbManchesaAir > 2)
+                errMes.innerHTML += "<li>Nombre de manches à air &gt; 2</li>";
+            
+            hideIfEmpty(errMes);
+        }
     case "phare":
         return function(form) {
             const phareDepose = form.querySelector('[name="phareDepose"]').checked;
@@ -32,16 +45,18 @@ function getValidator(type) {
             if (phareCorrect && !phareActif)
                 errMes.innerHTML += "<li>Phare déployé mais pas activé</li>";
             
-            if (errMes.innerHTML === "")
-                errMes.setAttribute("hidden","");
-            else
-                errMes.removeAttribute("hidden");
+            hideIfEmpty(errMes);
         }
     }
     return function(elem) { alert("error 1234"); };
 }
 
 window.addEventListener('DOMContentLoaded', ()=> {
+    // background-color
+    const colorAsked = window.location.hash;
+    document.body.style.backgroundColor = colorAsked || "#FFFFFFFF";
+    
+    // add validators to vanilla <input>
     for (const form of document.querySelectorAll("form[data-validator]")) {
         const errorMessage = document.createElement("ul");
         errorMessage.className = "alert alert-danger";
@@ -53,6 +68,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
                 input.addEventListener("input", form.validatorFunc);
     }
     
+    // create the "nbr-input" custom input
     for (const elem of document.getElementsByClassName("nbr-input")) {
         elem.classList.add("row");
         elem.classList.add("form-inline");
@@ -62,11 +78,13 @@ window.addEventListener('DOMContentLoaded', ()=> {
         input.type = "text";
         input.classList.add("form-control");
         input.value = "0";
-        input.setAttribute("readonly", "");
+        //input.setAttribute("readonly", "");
         input.setAttribute("name", elem.dataset.name);
         input.id = elem.dataset.id;
         input.dataset.valid = "";
         elem.appendChild(input);
+        if (input.form.validatorFunc)
+            input.addEventListener('input',input.form.validatorFunc);
         
         const newButton = function(name, intTransform) {
             const btn = document.createElement("button");

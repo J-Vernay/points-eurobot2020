@@ -2,66 +2,55 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css"/>
     <title>Points Eurobot 2020</title>
+<style>
+html,body { height: 100%;}
+iframe { width: 50%; height: 90%; }
+nav {
+  width: 100%;
+  display: flex;
+}
+nav * {
+  flex-grow: 1;
+  font-size: 2rem;
+  font-weight: 700;
+  height: 4rem;
+}
+</style>
   </head>
-  <body class="container">
+  <body>
+    <nav>
+      <button id="btnJaune"  style="background-color: #FFFFA0">Equipe Jaune</button>
+      <button id="btnBleu" style="background-color: #A0A0FF">Equipe Bleue</button>
+      <button id="btnDeux"  style="background-color: #FFFFFF">Les deux</button>
+    </nav>
     
-    <h1>Points pour Eurobot 2020</h1>
-    <h2>Les ports</h2>
-    <section>
-      <img src="img/bouees.png" class="img-fluid"/>
-      <h3>Port 1</h3>
-      <section>
-        <img src="img/port1.png" class="img-fluid"/>
-        <form name="port1" class="form-group" data-validator="port">
-          <label for="nbPort_1">Nombre de bouées dans le port</label>
-          <div class="nbr-input" data-id="nbPort_1" data-name="nbPort"></div>
-          <label for="nbChenaux_1">Nombre de bouées sur les chenaux</label>
-          <div class="nbr-input" data-id="nbChenaux_1" data-name="nbChenaux"></div>
-          <label for="nbPaires_1">Nombre de paires de bouées rouge/verte</label>
-          <div class="nbr-input" data-id="nbPaires_1" data-name="nbPaires"></div>
-        </form>
-      </section>
-      <h3>Port 2</h3>
-      <section>
-        <img src="img/port2.png" class="img-fluid"/>
-        <form name="port2" class="form-group" data-validator="port">
-          <label for="nbPort_2">Nombre de bouées dans le port</label>
-          <div class="nbr-input" data-id="nbPort_2" data-name="nbPort"></div>
-          <label for="nbChenaux_2">Nombre de bouées sur les chenaux</label>
-          <div class="nbr-input" data-id="nbChenaux_2" data-name="nbChenaux"></div>
-          <label for="nbPaires_2">Nombre de paires de bouées rouge/verte sur les chenaux</label>
-          <div class="nbr-input" data-id="nbPaires_2" data-name="nbPaires"></div>
-        </form>
-      </section>
-    </section>
-    <h2>Les manches à air</h2>
-    <section>
-      <img src="img/mancheaair.png" class="img-fluid"/>
-      <form name="port2" class="form-group">
-        <label for="nbManchesaAir">Nombre de manches à air debout</label>
-        <div class="nbr-input" data-id="nbManchesaAir" data-name="nbManchesaAir" data-max="2"></div>
-      </form>
-    </section>
-    <h2>Le phare</h2>
-    <section>
-      <img src="img/phare.png" class="img-fluid"/>
-      <form name="phare" class="form-group" style="font-size: 1.2rem;" data-validator="phare">
-        <div>
-          <input type="checkbox" id="phareDepose" name="phareDepose"/>
-          <label for="phareDepose">Le phare a été posé au début du match</label>
-        </div><div>
-          <input type="checkbox" id="phareActif" name="phareActif"/>
-          <label for="phareActif">Le phare a été activé pendant le match</label>
-        </div><div>
-          <input type="checkbox" id="phareCorrect" name="phareCorrect"/>
-          <label for="phareCorrect">Le phare est déployé et allumé correctement</label>
-        </div>
-      </form>
-    </section>
-    <script src="main.js"></script>
+    <div style="display:flex; height: 100%;">
+      <iframe id="jaune" src="team.html#FFFFA0"></iframe>
+      <iframe id="bleu" src="team.html#A0A0FF"></iframe>
+    </div>
+    
+    <script>
+const iframeBleu = document.getElementById("bleu");
+const iframeJaune = document.getElementById("jaune");
+document.getElementById("btnBleu").addEventListener('click', () => {
+    iframeJaune.style.display = "none";
+    iframeBleu.style.display = "";
+    iframeBleu.style.width = "100%";
+});
+document.getElementById("btnJaune").addEventListener('click', () => {
+    iframeJaune.style.display = "";
+    iframeJaune.style.width = "100%";
+    iframeBleu.style.display = "none";
+});
+document.getElementById("btnDeux").addEventListener('click', () => {
+    iframeJaune.style.display = "";
+    iframeJaune.style.display = "";
+    iframeBleu.style.width = "50%";
+    iframeJaune.style.width = "50%";
+});
+    </script>
   </body>
 </html>
