@@ -10,3 +10,22 @@ label {
     padding-top: 20px;
     font-weight: 600;
 }
+
+section {
+    padding-left: 2rem;
+    margin-left: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+}
+
+h2,h3 {
+    border-bottom: 2px solid black;
+    margin-bottom: 0;
+}
+
+input[type="checkbox"] {
+    transform: scale(3);
+    margin-right: 2rem;
+}

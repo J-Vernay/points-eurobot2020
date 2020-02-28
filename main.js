@@ -7,12 +7,12 @@ function getValidator(type) {
             const nbPort = parseInt(form.querySelector('[name="nbPort"]').value);
             const nbChenaux = parseInt(form.querySelector('[name="nbChenaux"]').value);
             const nbPaires = parseInt(form.querySelector('[name="nbPaires"]').value);
-            const errMes = form.querySelector('p.alert');
+            const errMes = form.querySelector('ul.alert');
             errMes.innerHTML = "";
             if (nbChenaux > nbPort)
-                errMes.innerHTML += "Il ne peut pas y avoir plus de gobelets sur les chenaux que dans le port<br/>";
+                errMes.innerHTML += "<li>+ de gobelets sur les chenaux que dans le port</li>";
             if (2*nbPaires > nbChenaux)
-                errMes.innerHTML += "Plus de paires comptées que de paires possibles avec les gobelets des chenaux<br/>";
+                errMes.innerHTML += "<li>+ de paires comptées que de paires possibles avec les gobelets des chenaux</li>";
             
             
             if (errMes.innerHTML === "")
@@ -20,17 +20,37 @@ function getValidator(type) {
             else
                 errMes.removeAttribute("hidden");
         };
+    case "phare":
+        return function(form) {
+            const phareDepose = form.querySelector('[name="phareDepose"]').checked;
+            const phareActif = form.querySelector('[name="phareActif"]').checked;
+            const phareCorrect = form.querySelector('[name="phareCorrect"]').checked;
+            const errMes = form.querySelector('ul.alert');
+            errMes.innerHTML = "";
+            if (phareActif && !phareDepose)
+                errMes.innerHTML += "<li>Phare activé mais pas déposé</li>";
+            if (phareCorrect && !phareActif)
+                errMes.innerHTML += "<li>Phare déployé mais pas activé</li>";
+            
+            if (errMes.innerHTML === "")
+                errMes.setAttribute("hidden","");
+            else
+                errMes.removeAttribute("hidden");
+        }
     }
     return function(elem) { alert("error 1234"); };
 }
 
 window.addEventListener('DOMContentLoaded', ()=> {
     for (const form of document.querySelectorAll("form[data-validator]")) {
-        const errorMessage = document.createElement("p");
+        const errorMessage = document.createElement("ul");
         errorMessage.className = "alert alert-danger";
         errorMessage.setAttribute("hidden", "");
         form.appendChild(errorMessage);
         form.validatorFunc = () => getValidator(form.dataset.validator)(form);
+        if (form.validatorFunc)
+            for (const input of document.querySelectorAll("input"))
+                input.addEventListener("input", form.validatorFunc);
     }
     
     for (const elem of document.getElementsByClassName("nbr-input")) {
