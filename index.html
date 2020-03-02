@@ -226,12 +226,12 @@
     <h2>Prédiction de performance</h2>
     <section>
         <div class="scoring-box">
-            <form name="score-estime-jaune" style="font-size: 1.2rem;">
+            <form name="score-estime-jaune" style="font-size: 1.2rem;" onkeydown="return event.key != 'Enter';">
               <h4>Equipe Jaune</h4>
               <label for="JscoreEstime">Score estimé</label>
               <input type="number" min="0" value="0" id="JscoreEstime" name="scoreEstime"/>
             </form>
-            <form name="score-estime-bleue" style="font-size: 1.2rem;">
+            <form name="score-estime-bleue" style="font-size: 1.2rem;" onkeydown="return event.key != 'Enter';">
               <h4>Equipe Bleue</h4>
               <label for="JscoreEstime">Score estimé</label>
               <input type="number" min="0" value="0" id="JscoreEstime" name="scoreEstime"/>

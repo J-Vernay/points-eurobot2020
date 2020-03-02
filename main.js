@@ -146,5 +146,5 @@ window.addEventListener('DOMContentLoaded', ()=> {
     
     // "prédiction de performance"
     for (const input of document.querySelectorAll('[name="scoreEstime"]'))
-        input.addEventListener('input', updateScore);
+        input.addEventListener('input', (evnt) => { evnt.preventDefault(); updateScore(); });
 });
