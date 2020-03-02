@@ -9,9 +9,9 @@ function getValidator(type) {
     switch (type) {
         case "port":
             return function(form) {
-                const nbPort = parseInt(form.querySelector('[name="nbPort"]').value);
-                const nbChenaux = parseInt(form.querySelector('[name="nbChenaux"]').value);
-                const nbPaires = parseInt(form.querySelector('[name="nbPaires"]').value);
+                const nbPort = parseInt(form.elements.nbPort.value);
+                const nbChenaux = parseInt(form.elements.nbChenaux.value);
+                const nbPaires = parseInt(form.elements.nbPaires.value);
                 const errMes = form.querySelector('ul.alert');
                 errMes.innerHTML = "";
                 if (nbChenaux > nbPort)
@@ -24,7 +24,7 @@ function getValidator(type) {
             };
         case "mancheaair":
             return function(form) {
-                const nbManchesaAir = parseInt(form.querySelector('[name="nbManchesaAir"]').value);
+                const nbManchesaAir = parseInt(form.elements.nbManchesaAir.value);
                 const errMes = form.querySelector('ul.alert');
                 errMes.innerHTML = "";
                 if (nbManchesaAir < 0)
@@ -37,9 +37,9 @@ function getValidator(type) {
             };
         case "phare":
             return function(form) {
-                const phareDepose = form.querySelector('[name="phareDepose"]').checked;
-                const phareActif = form.querySelector('[name="phareActif"]').checked;
-                const phareCorrect = form.querySelector('[name="phareCorrect"]').checked;
+                const phareDepose = form.elements.phareDepose.checked;
+                const phareActif = form.elements.phareActif.checked;
+                const phareCorrect = form.elements.phareCorrect.checked;
                 const errMes = form.querySelector('ul.alert');
                 errMes.innerHTML = "";
                 if (phareActif && !phareDepose)
@@ -49,6 +49,20 @@ function getValidator(type) {
 
                 hideIfEmpty(errMes);
                 form.dataset.score = (errMes.innerHTML != "" ? NaN : 2*phareDepose + 3*phareActif + 10*phareCorrect);
+            }
+        case "mouillage":
+            return function(form) {
+                const nbRobots = parseInt(form.elements.nbRobots.value);
+                for (const elem of form.children) {
+                    if (elem.dataset.siNbRobots == undefined) continue;
+                    elem.style.display = (nbRobots == elem.dataset.siNbRobots ? "" : "none");
+                }
+                
+                form.dataset.score = parseInt(nbRobots == 1 ? form.elements.pts1.value : form.elements.pts2.value);
+            }
+        case "pavillon":
+            return function(form) {
+                form.dataset.score = 10 * form.elements.pavillon.checked;
             }
     }
     return function(elem) { alert("error 1234"); };
@@ -61,15 +75,17 @@ function updateScore() {
         scoreJaune += parseInt(form.dataset.score);
     for (const form of document.querySelectorAll('form[name*="bleue"]'))
         scoreBleue += parseInt(form.dataset.score);
-    document.getElementById("score-jaune").innerHTML = ""+scoreJaune;
-    document.getElementById("score-bleue").innerHTML = ""+scoreBleue;
+    const scoreEstimeJaune = document.forms["score-estime-jaune"].elements.scoreEstime.value;
+    const scoreEstimeBleue = document.forms["score-estime-bleue"].elements.scoreEstime.value;
+    const bonusJaune = Math.ceil(Math.max(0, (0.3*scoreJaune) - Math.abs(scoreJaune - scoreEstimeJaune)));
+    const bonusBleue = Math.ceil(Math.max(0, (0.3*scoreBleue) - Math.abs(scoreBleue - scoreEstimeBleue)));
+    const totalJaune = scoreJaune + bonusJaune;
+    const totalBleue = scoreBleue + bonusBleue;
+    document.getElementById("score-jaune").innerHTML = `${totalJaune} (${scoreJaune} +${bonusJaune})`;
+    document.getElementById("score-bleue").innerHTML = `${totalBleue} (${scoreBleue} +${bonusBleue})`;
 }
 
 window.addEventListener('DOMContentLoaded', ()=> {
-    // background-color
-    const colorAsked = window.location.hash;
-    document.body.style.backgroundColor = colorAsked || "#FFFFFFFF";
-
     // add validators to vanilla <input>
     for (const form of document.querySelectorAll("form[data-validator]")) {
         const errorMessage = document.createElement("ul");
@@ -123,4 +139,12 @@ window.addEventListener('DOMContentLoaded', ()=> {
         elem.appendChild(newButton("-1", nb => (nb <= 1 ? 0 : nb - 1)));
         elem.appendChild(newButton("C", nb => 0));
     }
+    
+    // calling all validators (needed for "mouillage" to display the correct div)
+    for (const form of document.querySelectorAll("form[data-validator]"))
+        form.validatorFunc();
+    
+    // "prédiction de performance"
+    for (const input of document.querySelectorAll('[name="scoreEstime"]'))
+        input.addEventListener('input', updateScore);
 });

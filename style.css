@@ -1,5 +1,6 @@
 label {
     padding-top: 20px;
+    padding-right: 1rem;
     font-weight: 600;
     display: initial;
 }
@@ -17,6 +18,10 @@ input[readonly][data-valid] {
 input[type="checkbox"] {
     transform: scale(2.5);
     margin-right: 1.5rem;
+}
+input[type="radio"] {
+    transform: scale(2.5);
+    margin: 0 1rem 1rem 20px;
 }
 
 form {

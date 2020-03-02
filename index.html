@@ -130,6 +130,112 @@
         </div>
     </section>
 </div>
+<div class="action-box">
+    <h2>Zones de mouillage</h2>
+    <section>
+        <div class="scoring-box">
+            <form name="mouillage-jaune" style="font-size: 1.2rem;" data-validator="mouillage">
+                <h4>Equipe Jaune</h4>
+                <div>
+                  <input type="radio" name="nbRobots" id="JnbRobots1" value="1" checked>
+                  <label for="JnbRobots1">1 robot</label>
+                  <input type="radio" name="nbRobots" id="JnbRobots2" value="2">
+                  <label for="JnbRobots2">2 robots</label>
+                </div>
+                <div data-si-nb-robots="1">
+                  <input type="radio" name="pts1" id="Jpts1-0" value="0" checked>
+                  <label for="Jpts1-0">Le robot n'est pas dans une zone de mouillage</label>
+                  <br/>
+                  <input type="radio" name="pts1" id="Jpts1-5" value="5">
+                  <label for="Jpts1-5">Le robot est dans la mauvaise zone</label>
+                  <br/>
+                  <input type="radio" name="pts1" id="Jpts1-10" value="10">
+                  <label for="Jpts1-10">Le robot est dans la bonne zone</label>
+                </div>
+                <div data-si-nb-robots="2" style="display: none">
+                  <input type="radio" name="pts2" id="Jpts2-0" value="0" checked>
+                  <label for="Jpts2-0">Les robots sont dans des zones différentes</label>
+                  <br/>
+                  <input type="radio" name="pts2" id="Jpts2-5-1" value="5">
+                  <label for="Jpts2-5-1">Un des robots est dans la bonne zone</label>
+                  <br/>
+                  <input type="radio" name="pts2" id="Jpts2-5-2" value="5">
+                  <label for="Jpts2-5-2">Les robots sont dans la mauvaise zone</label>
+                  <br/>
+                  <input type="radio" name="pts2" id="Jpts2-10" value="10">
+                  <label for="Jpts2-10">Les robots sont dans la bonne zone</label>
+                </div>
+            </form>
+            <form name="mouillage-bleue" style="font-size: 1.2rem;" data-validator="mouillage">
+              <h4>Equipe Bleue</h4>
+              <div>
+                <input type="radio" name="nbRobots" id="BnbRobots1" value="1" checked>
+                <label for="BnbRobots1">1 robot</label>
+                <input type="radio" name="nbRobots" id="BnbRobots2" value="2">
+                <label for="BnbRobots2">2 robots</label>
+              </div>
+              <div data-si-nb-robots="1">
+                <input type="radio" name="pts1" id="Bpts1-0" value="0" checked>
+                <label for="Bpts1-0">Le robot n'est pas dans une zone de mouillage</label>
+                <br/>
+                <input type="radio" name="pts1" id="Bpts1-5" value="5">
+                <label for="Bpts1-5">Le robot est dans la mauvaise zone</label>
+                <br/>
+                <input type="radio" name="pts1" id="Bpts1-10" value="10">
+                <label for="Bpts1-10">Le robot est dans la bonne zone</label>
+              </div>
+              <div data-si-nb-robots="2" style="display: none">
+                <input type="radio" name="pts2" id="Bpts2-0" value="0" checked>
+                <label for="Bpts2-0">Les robots sont dans des zones différentes</label>
+                <br/>
+                <input type="radio" name="pts2" id="Bpts2-5-1" value="5">
+                <label for="Bpts2-5-1">Un des robots est dans la bonne zone</label>
+                <br/>
+                <input type="radio" name="pts2" id="Bpts2-5-2" value="5">
+                <label for="Bpts2-5-2">Les robots sont dans la mauvaise zone</label>
+                <br/>
+                <input type="radio" name="pts2" id="Bpts2-10" value="10">
+                <label for="Bpts2-10">Les robots sont dans la bonne zone</label>
+              </div>
+            </form>
+        </div>
+    </section>
+</div>
+<div class="action-box">
+    <h2>Pavillon</h2>
+    <section>
+        <div class="scoring-box">
+            <form name="pavillon-jaune" style="font-size: 1.2rem;" data-validator="pavillon">
+              <h4>Equipe Jaune</h4>
+              <input type="checkbox" id="Jpavillon" name="pavillon"/>
+              <label for="Jpavillon">Le pavillon est à &gt;35cm d'altitude</label>
+            </form>
+            <form name="pavillon-bleue" style="font-size: 1.2rem;" data-validator="pavillon">
+              <h4>Equipe Bleue</h4>
+              <input type="checkbox" id="Bpavillon" name="pavillon"/>
+              <label for="Bpavillon">Le pavillon est à &gt;35cm d'altitude</label>
+            </form>
+        </div>
+    </section>
+</div>
+<div class="action-box">
+    <h2>Prédiction de performance</h2>
+    <section>
+        <div class="scoring-box">
+            <form name="score-estime-jaune" style="font-size: 1.2rem;">
+              <h4>Equipe Jaune</h4>
+              <label for="JscoreEstime">Score estimé</label>
+              <input type="number" min="0" value="0" id="JscoreEstime" name="scoreEstime"/>
+            </form>
+            <form name="score-estime-bleue" style="font-size: 1.2rem;">
+              <h4>Equipe Bleue</h4>
+              <label for="JscoreEstime">Score estimé</label>
+              <input type="number" min="0" value="0" id="JscoreEstime" name="scoreEstime"/>
+            </form>
+        </div>
+    </section>
+</div>
+
 </body>
 </html>
 <script src="main.js"></script>
