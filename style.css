@@ -16,8 +16,8 @@ input[readonly][data-valid] {
     background-color: #00000000 !important;
 }
 input[type="checkbox"] {
-    transform: scale(2.5);
-    margin-right: 1.5rem;
+    transform: scale(2);
+    margin-right: 1.1rem;
 }
 input[type="radio"] {
     transform: scale(2.5);
@@ -64,6 +64,7 @@ span[id*="score"] {
     top: 0;
     right: 0;
     font-size: 1.3rem;
+    z-index: 1;
 }
 .total-equipe p {
     padding: 1rem 2rem;
@@ -104,4 +105,5 @@ span[id*="score"] {
 .container-img {
     display: flex;
     justify-content: center;
+    min-width: 143px;
 }
