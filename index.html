@@ -4,242 +4,247 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css"/>
     <title>Points Eurobot 2020</title>
 </head>
-<body class="container">
-<div class="row total-equipe">
+<body>
+<div class="total-equipe">
     <p class="background-yellow">Equipe jaune : <span id="score-jaune">0</span></p>
     <p class="background-bleue">Equipe bleue : <span id="score-bleue">0</span></p>
 </div>
-<h1>Points pour Eurobot 2020</h1>
-<h2>Les ports</h2>
-<section>
-    <img src="img/bouees.png" class="img-fluid"/>
-    <div class="action-box">
-        <h3>Grand port</h3>
-        <section>
-            <div class="scoring-box">
-                <form name="port1-jaune" data-validator="port">
-                    <h4>Equipe Jaune</h4>
-                    <label for="JnbPort_1">Nombre de bouées dans le port</label>
-                    <div class="nbr-input" data-id="JnbPort_1" data-name="nbPort"></div>
-                    <label for="JnbChenaux_1">Nombre de bouées sur les chenaux</label>
-                    <div class="nbr-input" data-id="JnbChenaux_1" data-name="nbChenaux"></div>
-                    <label for="JnbPaires_1">Nombre de paires de bouées rouge/verte</label>
-                    <div class="nbr-input" data-id="JnbPaires_1" data-name="nbPaires"></div>
-                </form>
-                <form name="port1-bleue" data-validator="port">
-                    <h4>Equipe Bleue</h4>
-                    <label for="BnbPort_1">Nombre de bouées dans le port</label>
-                    <div class="nbr-input" data-id="BnbPort_1" data-name="nbPort"></div>
-                    <label for="BnbChenaux_1">Nombre de bouées sur les chenaux</label>
-                    <div class="nbr-input" data-id="BnbChenaux_1" data-name="nbChenaux"></div>
-                    <label for="BnbPaires_1">Nombre de paires de bouées rouge/verte</label>
-                    <div class="nbr-input" data-id="BnbPaires_1" data-name="nbPaires"></div>
-                </form>
-                <div class="container-img">
-                    <img src="img/port1.png" class="img-fluid" style="height: 150px; width: 132px;"/>
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="action-box">
-        <h3>Petit port</h3>
-        <section>
-            <div class="scoring-box">
-                <form name="port2-jaune" data-validator="port">
-                    <h4>Equipe Jaune</h4>
-                    <label for="JnbPort_2">Nombre de bouées dans le port</label>
-                    <div class="nbr-input" data-id="JnbPort_2" data-name="nbPort"></div>
-                    <label for="JnbChenaux_2">Nombre de bouées sur les chenaux</label>
-                    <div class="nbr-input" data-id="JnbChenaux_2" data-name="nbChenaux"></div>
-                    <label for="JnbPaires_2">Nombre de paires de bouées rouge/verte sur les chenaux</label>
-                    <div class="nbr-input" data-id="JnbPaires_2" data-name="nbPaires"></div>
-                </form>
-                <form name="port2-bleue" data-validator="port">
-                    <h4>Equipe Bleue</h4>
-                    <label for="BnbPort_2">Nombre de bouées dans le port</label>
-                    <div class="nbr-input" data-id="BnbPort_2" data-name="nbPort"></div>
-                    <label for="BnbChenaux_2">Nombre de bouées sur les chenaux</label>
-                    <div class="nbr-input" data-id="BnbChenaux_2" data-name="nbChenaux"></div>
-                    <label for="BnbPaires_2">Nombre de paires de bouées rouge/verte sur les chenaux</label>
-                    <div class="nbr-input" data-id="BnbPaires_2" data-name="nbPaires"></div>
-                </form>
-                <div class="container-img">
-                    <img src="img/port2.png" class="img-fluid" style="height: 150px; margin-left: 5px;"/>
-                </div>
-            </div>
-        </section>
-    </div>
-</section>
-<div class="action-box">
-    <h2>Les manches à air</h2>
+<div class="container">
+    <h1>Points pour Eurobot 2020</h1>
+    <h2>Les ports</h2>
     <section>
-        <div class="scoring-box">
-            <form name="mancheaair-jaune" data-validator="mancheaair">
-                <h4>Equipe Jaune</h4>
-                <label for="JnbManchesaAir">Nombre de manches à air debout</label>
-                <div class="nbr-input" data-id="JnbManchesaAir" data-name="nbManchesaAir" data-max="2"></div>
-            </form>
-            <form name="mancheaair-bleue" data-validator="mancheaair">
-                <h4>Equipe Bleue</h4>
-                <label for="BnbManchesaAir">Nombre de manches à air debout</label>
-                <div class="nbr-input" data-id="BnbManchesaAir" data-name="nbManchesaAir" data-max="2"></div>
-            </form>
+        <img src="img/bouees.png" class="img-fluid"/>
+        <div class="action-box">
+            <h3>Grand port</h3>
+            <section>
+                <div class="scoring-box">
+                    <form name="port1-jaune" data-validator="port">
+                        <h4>Equipe Jaune</h4>
+                        <label for="JnbPort_1">Nombre de bouées dans le port</label>
+                        <div class="nbr-input" data-id="JnbPort_1" data-name="nbPort"></div>
+                        <label for="JnbChenaux_1">Nombre de bouées sur les chenaux</label>
+                        <div class="nbr-input" data-id="JnbChenaux_1" data-name="nbChenaux"></div>
+                        <label for="JnbPaires_1">Nombre de paires de bouées rouge/verte</label>
+                        <div class="nbr-input" data-id="JnbPaires_1" data-name="nbPaires"></div>
+                    </form>
+                    <form name="port1-bleue" data-validator="port">
+                        <h4>Equipe Bleue</h4>
+                        <label for="BnbPort_1">Nombre de bouées dans le port</label>
+                        <div class="nbr-input" data-id="BnbPort_1" data-name="nbPort"></div>
+                        <label for="BnbChenaux_1">Nombre de bouées sur les chenaux</label>
+                        <div class="nbr-input" data-id="BnbChenaux_1" data-name="nbChenaux"></div>
+                        <label for="BnbPaires_1">Nombre de paires de bouées rouge/verte</label>
+                        <div class="nbr-input" data-id="BnbPaires_1" data-name="nbPaires"></div>
+                    </form>
+                    <div class="container-img">
+                        <img src="img/port1.png" class="img-fluid" style="height: 150px; width: 132px;"/>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="action-box">
+            <h3>Petit port</h3>
+            <section>
+                <div class="scoring-box">
+                    <form name="port2-jaune" data-validator="port">
+                        <h4>Equipe Jaune</h4>
+                        <label for="JnbPort_2">Nombre de bouées dans le port</label>
+                        <div class="nbr-input" data-id="JnbPort_2" data-name="nbPort"></div>
+                        <label for="JnbChenaux_2">Nombre de bouées sur les chenaux</label>
+                        <div class="nbr-input" data-id="JnbChenaux_2" data-name="nbChenaux"></div>
+                        <label for="JnbPaires_2">Nombre de paires de bouées rouge/verte sur les chenaux</label>
+                        <div class="nbr-input" data-id="JnbPaires_2" data-name="nbPaires"></div>
+                    </form>
+                    <form name="port2-bleue" data-validator="port">
+                        <h4>Equipe Bleue</h4>
+                        <label for="BnbPort_2">Nombre de bouées dans le port</label>
+                        <div class="nbr-input" data-id="BnbPort_2" data-name="nbPort"></div>
+                        <label for="BnbChenaux_2">Nombre de bouées sur les chenaux</label>
+                        <div class="nbr-input" data-id="BnbChenaux_2" data-name="nbChenaux"></div>
+                        <label for="BnbPaires_2">Nombre de paires de bouées rouge/verte sur les chenaux</label>
+                        <div class="nbr-input" data-id="BnbPaires_2" data-name="nbPaires"></div>
+                    </form>
+                    <div class="container-img">
+                        <img src="img/port2.png" class="img-fluid" style="height: 150px; margin-left: 5px;"/>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <div class="action-box">
+        <h2>Les manches à air</h2>
+        <section>
+            <div class="scoring-box">
+                <form name="mancheaair-jaune" data-validator="mancheaair">
+                    <h4>Equipe Jaune</h4>
+                    <label for="JnbManchesaAir">Nombre de manches à air debout</label>
+                    <div class="nbr-input" data-id="JnbManchesaAir" data-name="nbManchesaAir" data-max="2"></div>
+                </form>
+                <form name="mancheaair-bleue" data-validator="mancheaair">
+                    <h4>Equipe Bleue</h4>
+                    <label for="BnbManchesaAir">Nombre de manches à air debout</label>
+                    <div class="nbr-input" data-id="BnbManchesaAir" data-name="nbManchesaAir" data-max="2"></div>
+                </form>
+                <div class="container-img">
+                    <img src="img/mancheaair.png" class="img-fluid" style="margin-left: 5px;"/>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="action-box">
+        <h2>Le phare</h2>
+        <section>
             <div class="container-img">
-                <img src="img/mancheaair.png" class="img-fluid" style="margin-left: 5px;"/>
+                <img src="img/phare.png" class="img-fluid img-phare"/>
             </div>
-        </div>
-    </section>
+            <div class="scoring-box">
+                <form name="phare-jaune" style="font-size: 1.2rem;" data-validator="phare">
+                    <h4>Equipe Jaune</h4>
+                    <div>
+                        <input type="checkbox" id="JphareDepose" name="phareDepose"/>
+                        <label for="JphareDepose">Le phare a été posé au début du match</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="JphareActif" name="phareActif"/>
+                        <label for="JphareActif">Le phare a été activé pendant le match</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="JphareCorrect" name="phareCorrect"/>
+                        <label for="JphareCorrect">Le phare est déployé et allumé correctement</label>
+                    </div>
+                </form>
+                <form name="phare-bleue" style="font-size: 1.2rem;" data-validator="phare">
+                    <h4>Equipe Bleue</h4>
+                    <div>
+                        <input type="checkbox" id="BphareDepose" name="phareDepose"/>
+                        <label for="BphareDepose">Le phare a été posé au début du match</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="BphareActif" name="phareActif"/>
+                        <label for="BphareActif">Le phare a été activé pendant le match</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="BphareCorrect" name="phareCorrect"/>
+                        <label for="BphareCorrect">Le phare est déployé et allumé correctement</label>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+    <div class="action-box">
+        <h2>Zones de mouillage</h2>
+        <section>
+            <div class="scoring-box">
+                <form name="mouillage-jaune" style="font-size: 1.2rem;" data-validator="mouillage">
+                    <h4>Equipe Jaune</h4>
+                    <div>
+                        <input type="radio" name="nbRobots" id="JnbRobots1" value="1" checked>
+                        <label for="JnbRobots1">1 robot</label>
+                        <input type="radio" name="nbRobots" id="JnbRobots2" value="2">
+                        <label for="JnbRobots2">2 robots</label>
+                    </div>
+                    <div data-si-nb-robots="1">
+                        <input type="radio" name="pts1" id="Jpts1-0" value="0" checked>
+                        <label for="Jpts1-0">Le robot n'est pas dans une zone de mouillage</label>
+                        <br/>
+                        <input type="radio" name="pts1" id="Jpts1-5" value="5">
+                        <label for="Jpts1-5">Le robot est dans la mauvaise zone</label>
+                        <br/>
+                        <input type="radio" name="pts1" id="Jpts1-10" value="10">
+                        <label for="Jpts1-10">Le robot est dans la bonne zone</label>
+                    </div>
+                    <div data-si-nb-robots="2" style="display: none">
+                        <input type="radio" name="pts2" id="Jpts2-0" value="0" checked>
+                        <label for="Jpts2-0">Les robots sont dans des zones différentes</label>
+                        <br/>
+                        <input type="radio" name="pts2" id="Jpts2-5-1" value="5">
+                        <label for="Jpts2-5-1">Un des robots est dans la bonne zone</label>
+                        <br/>
+                        <input type="radio" name="pts2" id="Jpts2-5-2" value="5">
+                        <label for="Jpts2-5-2">Les robots sont dans la mauvaise zone</label>
+                        <br/>
+                        <input type="radio" name="pts2" id="Jpts2-10" value="10">
+                        <label for="Jpts2-10">Les robots sont dans la bonne zone</label>
+                    </div>
+                </form>
+                <form name="mouillage-bleue" style="font-size: 1.2rem;" data-validator="mouillage">
+                    <h4>Equipe Bleue</h4>
+                    <div>
+                        <input type="radio" name="nbRobots" id="BnbRobots1" value="1" checked>
+                        <label for="BnbRobots1">1 robot</label>
+                        <input type="radio" name="nbRobots" id="BnbRobots2" value="2">
+                        <label for="BnbRobots2">2 robots</label>
+                    </div>
+                    <div data-si-nb-robots="1">
+                        <input type="radio" name="pts1" id="Bpts1-0" value="0" checked>
+                        <label for="Bpts1-0">Le robot n'est pas dans une zone de mouillage</label>
+                        <br/>
+                        <input type="radio" name="pts1" id="Bpts1-5" value="5">
+                        <label for="Bpts1-5">Le robot est dans la mauvaise zone</label>
+                        <br/>
+                        <input type="radio" name="pts1" id="Bpts1-10" value="10">
+                        <label for="Bpts1-10">Le robot est dans la bonne zone</label>
+                    </div>
+                    <div data-si-nb-robots="2" style="display: none">
+                        <input type="radio" name="pts2" id="Bpts2-0" value="0" checked>
+                        <label for="Bpts2-0">Les robots sont dans des zones différentes</label>
+                        <br/>
+                        <input type="radio" name="pts2" id="Bpts2-5-1" value="5">
+                        <label for="Bpts2-5-1">Un des robots est dans la bonne zone</label>
+                        <br/>
+                        <input type="radio" name="pts2" id="Bpts2-5-2" value="5">
+                        <label for="Bpts2-5-2">Les robots sont dans la mauvaise zone</label>
+                        <br/>
+                        <input type="radio" name="pts2" id="Bpts2-10" value="10">
+                        <label for="Bpts2-10">Les robots sont dans la bonne zone</label>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+    <div class="action-box">
+        <h2>Pavillon</h2>
+        <section>
+            <div class="scoring-box">
+                <form name="pavillon-jaune" style="font-size: 1.2rem;" data-validator="pavillon">
+                    <h4>Equipe Jaune</h4>
+                    <input type="checkbox" id="Jpavillon" name="pavillon"/>
+                    <label for="Jpavillon">Le pavillon est à &gt;35cm d'altitude</label>
+                </form>
+                <form name="pavillon-bleue" style="font-size: 1.2rem;" data-validator="pavillon">
+                    <h4>Equipe Bleue</h4>
+                    <input type="checkbox" id="Bpavillon" name="pavillon"/>
+                    <label for="Bpavillon">Le pavillon est à &gt;35cm d'altitude</label>
+                </form>
+            </div>
+        </section>
+    </div>
+    <div class="action-box">
+        <h2>Prédiction de performance</h2>
+        <section>
+            <div class="scoring-box">
+                <form name="score-estime-jaune" style="font-size: 1.2rem;" onkeydown="return event.key != 'Enter';">
+                    <h4>Equipe Jaune</h4>
+                    <label for="JscoreEstime">Score estimé</label>
+                    <input type="number" min="0" value="0" id="JscoreEstime" name="scoreEstime"/>
+                </form>
+                <form name="score-estime-bleue" style="font-size: 1.2rem;" onkeydown="return event.key != 'Enter';">
+                    <h4>Equipe Bleue</h4>
+                    <label for="JscoreEstime">Score estimé</label>
+                    <input type="number" min="0" value="0" id="JscoreEstime" name="scoreEstime"/>
+                </form>
+            </div>
+        </section>
+    </div>
 </div>
-<div class="action-box">
-    <h2>Le phare</h2>
-    <section>
-        <div class="container-img">
-            <img src="img/phare.png" class="img-fluid img-phare"/>
-        </div>
-        <div class="scoring-box">
-            <form name="phare-jaune" style="font-size: 1.2rem;" data-validator="phare">
-                <h4>Equipe Jaune</h4>
-                <div>
-                    <input type="checkbox" id="JphareDepose" name="phareDepose"/>
-                    <label for="JphareDepose">Le phare a été posé au début du match</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="JphareActif" name="phareActif"/>
-                    <label for="JphareActif">Le phare a été activé pendant le match</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="JphareCorrect" name="phareCorrect"/>
-                    <label for="JphareCorrect">Le phare est déployé et allumé correctement</label>
-                </div>
-            </form>
-            <form name="phare-bleue" style="font-size: 1.2rem;" data-validator="phare">
-                <h4>Equipe Bleue</h4>
-                <div>
-                    <input type="checkbox" id="BphareDepose" name="phareDepose"/>
-                    <label for="BphareDepose">Le phare a été posé au début du match</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="BphareActif" name="phareActif"/>
-                    <label for="BphareActif">Le phare a été activé pendant le match</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="BphareCorrect" name="phareCorrect"/>
-                    <label for="BphareCorrect">Le phare est déployé et allumé correctement</label>
-                </div>
-            </form>
-        </div>
-    </section>
-</div>
-<div class="action-box">
-    <h2>Zones de mouillage</h2>
-    <section>
-        <div class="scoring-box">
-            <form name="mouillage-jaune" style="font-size: 1.2rem;" data-validator="mouillage">
-                <h4>Equipe Jaune</h4>
-                <div>
-                  <input type="radio" name="nbRobots" id="JnbRobots1" value="1" checked>
-                  <label for="JnbRobots1">1 robot</label>
-                  <input type="radio" name="nbRobots" id="JnbRobots2" value="2">
-                  <label for="JnbRobots2">2 robots</label>
-                </div>
-                <div data-si-nb-robots="1">
-                  <input type="radio" name="pts1" id="Jpts1-0" value="0" checked>
-                  <label for="Jpts1-0">Le robot n'est pas dans une zone de mouillage</label>
-                  <br/>
-                  <input type="radio" name="pts1" id="Jpts1-5" value="5">
-                  <label for="Jpts1-5">Le robot est dans la mauvaise zone</label>
-                  <br/>
-                  <input type="radio" name="pts1" id="Jpts1-10" value="10">
-                  <label for="Jpts1-10">Le robot est dans la bonne zone</label>
-                </div>
-                <div data-si-nb-robots="2" style="display: none">
-                  <input type="radio" name="pts2" id="Jpts2-0" value="0" checked>
-                  <label for="Jpts2-0">Les robots sont dans des zones différentes</label>
-                  <br/>
-                  <input type="radio" name="pts2" id="Jpts2-5-1" value="5">
-                  <label for="Jpts2-5-1">Un des robots est dans la bonne zone</label>
-                  <br/>
-                  <input type="radio" name="pts2" id="Jpts2-5-2" value="5">
-                  <label for="Jpts2-5-2">Les robots sont dans la mauvaise zone</label>
-                  <br/>
-                  <input type="radio" name="pts2" id="Jpts2-10" value="10">
-                  <label for="Jpts2-10">Les robots sont dans la bonne zone</label>
-                </div>
-            </form>
-            <form name="mouillage-bleue" style="font-size: 1.2rem;" data-validator="mouillage">
-              <h4>Equipe Bleue</h4>
-              <div>
-                <input type="radio" name="nbRobots" id="BnbRobots1" value="1" checked>
-                <label for="BnbRobots1">1 robot</label>
-                <input type="radio" name="nbRobots" id="BnbRobots2" value="2">
-                <label for="BnbRobots2">2 robots</label>
-              </div>
-              <div data-si-nb-robots="1">
-                <input type="radio" name="pts1" id="Bpts1-0" value="0" checked>
-                <label for="Bpts1-0">Le robot n'est pas dans une zone de mouillage</label>
-                <br/>
-                <input type="radio" name="pts1" id="Bpts1-5" value="5">
-                <label for="Bpts1-5">Le robot est dans la mauvaise zone</label>
-                <br/>
-                <input type="radio" name="pts1" id="Bpts1-10" value="10">
-                <label for="Bpts1-10">Le robot est dans la bonne zone</label>
-              </div>
-              <div data-si-nb-robots="2" style="display: none">
-                <input type="radio" name="pts2" id="Bpts2-0" value="0" checked>
-                <label for="Bpts2-0">Les robots sont dans des zones différentes</label>
-                <br/>
-                <input type="radio" name="pts2" id="Bpts2-5-1" value="5">
-                <label for="Bpts2-5-1">Un des robots est dans la bonne zone</label>
-                <br/>
-                <input type="radio" name="pts2" id="Bpts2-5-2" value="5">
-                <label for="Bpts2-5-2">Les robots sont dans la mauvaise zone</label>
-                <br/>
-                <input type="radio" name="pts2" id="Bpts2-10" value="10">
-                <label for="Bpts2-10">Les robots sont dans la bonne zone</label>
-              </div>
-            </form>
-        </div>
-    </section>
-</div>
-<div class="action-box">
-    <h2>Pavillon</h2>
-    <section>
-        <div class="scoring-box">
-            <form name="pavillon-jaune" style="font-size: 1.2rem;" data-validator="pavillon">
-              <h4>Equipe Jaune</h4>
-              <input type="checkbox" id="Jpavillon" name="pavillon"/>
-              <label for="Jpavillon">Le pavillon est à &gt;35cm d'altitude</label>
-            </form>
-            <form name="pavillon-bleue" style="font-size: 1.2rem;" data-validator="pavillon">
-              <h4>Equipe Bleue</h4>
-              <input type="checkbox" id="Bpavillon" name="pavillon"/>
-              <label for="Bpavillon">Le pavillon est à &gt;35cm d'altitude</label>
-            </form>
-        </div>
-    </section>
-</div>
-<div class="action-box">
-    <h2>Prédiction de performance</h2>
-    <section>
-        <div class="scoring-box">
-            <form name="score-estime-jaune" style="font-size: 1.2rem;" onkeydown="return event.key != 'Enter';">
-              <h4>Equipe Jaune</h4>
-              <label for="JscoreEstime">Score estimé</label>
-              <input type="number" min="0" value="0" id="JscoreEstime" name="scoreEstime"/>
-            </form>
-            <form name="score-estime-bleue" style="font-size: 1.2rem;" onkeydown="return event.key != 'Enter';">
-              <h4>Equipe Bleue</h4>
-              <label for="JscoreEstime">Score estimé</label>
-              <input type="number" min="0" value="0" id="JscoreEstime" name="scoreEstime"/>
-            </form>
-        </div>
-    </section>
-</div>
-
 </body>
 </html>
 <script src="main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/solid.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/fontawesome.min.js"></script>

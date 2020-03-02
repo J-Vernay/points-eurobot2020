@@ -20,8 +20,8 @@ input[type="checkbox"] {
     margin-right: 1.1rem;
 }
 input[type="radio"] {
-    transform: scale(2.5);
-    margin: 0 1rem 1rem 20px;
+    transform: scale(1.5);
+    margin: 0 15px 0 20px;
 }
 
 form {
@@ -60,6 +60,7 @@ span[id*="score"] {
 }
 
 .total-equipe {
+    display: flex;
     position: fixed;
     top: 0;
     right: 0;
@@ -106,4 +107,33 @@ span[id*="score"] {
     display: flex;
     justify-content: center;
     min-width: 143px;
+}
+/*Smartphones jusqu'à 425px de large */
+/*Tablettes de 426px à 767px de large*/
+/*Ordinateurs portables de 768px jusqu’à 1388px de large*/
+/*Écrans de bureau supérieurs à 1388px de large*/
+
+/* Code pour format de tablette */
+@media all and (min-width: 768px) and (max-width: 1388px)
+{
+}
+
+/* Code pour format de smartphone */
+@media all and (max-width: 767px)
+{
+    .container-img {
+        display: none;
+    }
+    .container {
+        margin-left: 20px;
+        margin-right: 20px;
+        width: auto;
+        max-width: inherit;
+    }
+
+    .total-equipe p {
+        padding: 8px 12px;
+        margin: 0;
+        font-size: 20px;
+    }
 }

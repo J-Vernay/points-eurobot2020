@@ -121,8 +121,8 @@ window.addEventListener('DOMContentLoaded', ()=> {
         const newButton = function(name, intTransform) {
             const btn = document.createElement("button");
             btn.className = "btn btn-primary";
-            btn.textContent = name;
-            btn.style.marginLeft = "20px";
+            btn.innerHTML = name;
+            btn.style.marginLeft = "10px";
             btn.addEventListener('click', (evnt) => {
                 let val = intTransform(parseInt(input.value));
                 if (val < 0) val = 0;
@@ -135,9 +135,9 @@ window.addEventListener('DOMContentLoaded', ()=> {
             return btn;
         };
 
-        elem.appendChild(newButton("+1", nb => nb + 1));
-        elem.appendChild(newButton("-1", nb => (nb <= 1 ? 0 : nb - 1)));
-        elem.appendChild(newButton("C", nb => 0));
+        elem.appendChild(newButton("<i class=\"fas fa-plus\"></i>", nb => nb + 1));
+        elem.appendChild(newButton("<i class=\"fas fa-minus\"></i>", nb => (nb <= 1 ? 0 : nb - 1)));
+        elem.appendChild(newButton("<i class=\"fas fa-trash-alt\"></i>", nb => 0));
     }
     
     // calling all validators (needed for "mouillage" to display the correct div)
