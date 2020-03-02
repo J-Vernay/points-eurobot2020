@@ -20,6 +20,7 @@ function getValidator(type) {
                 errMes.innerHTML += "<li>+ de paires comptées que de paires possibles avec les gobelets des chenaux</li>";
             
             hideIfEmpty(errMes);
+            form.dataset.score = (errMes.innerHTML != "" ? NaN : nbPort + nbChenaux + 2*nbPaires);
         };
     case "mancheaair":
         return function(form) {
@@ -32,6 +33,7 @@ function getValidator(type) {
                 errMes.innerHTML += "<li>Nombre de manches à air &gt; 2</li>";
             
             hideIfEmpty(errMes);
+            form.dataset.score = (errMes.innerHTML != "" ? NaN : [0,5,15][nbManchesaAir]);
         }
     case "phare":
         return function(form) {
@@ -46,9 +48,21 @@ function getValidator(type) {
                 errMes.innerHTML += "<li>Phare déployé mais pas activé</li>";
             
             hideIfEmpty(errMes);
+            form.dataset.score = (errMes.innerHTML != "" ? NaN : 2*phareDepose + 3*phareActif + 10*phareCorrect);
         }
     }
     return function(elem) { alert("error 1234"); };
+}
+
+function updateScore() {
+    let scoreJaune = 0;
+    let scoreBleue = 0;
+    for (const form of document.querySelectorAll('form[name*="jaune"]'))
+        scoreJaune += parseInt(form.dataset.score);
+    for (const form of document.querySelectorAll('form[name*="bleue"]'))
+        scoreBleue += parseInt(form.dataset.score);
+    document.getElementById("score-jaune").innerHTML = ""+scoreJaune;
+    document.getElementById("score-bleue").innerHTML = ""+scoreBleue;
 }
 
 window.addEventListener('DOMContentLoaded', ()=> {
@@ -62,11 +76,14 @@ window.addEventListener('DOMContentLoaded', ()=> {
         errorMessage.className = "alert alert-danger";
         errorMessage.setAttribute("hidden", "");
         form.appendChild(errorMessage);
-        form.validatorFunc = () => getValidator(form.dataset.validator)(form);
-        if (form.validatorFunc)
-            for (const input of document.querySelectorAll("input"))
-                input.addEventListener("input", form.validatorFunc);
+        form.validatorFunc = () => { getValidator(form.dataset.validator)(form); updateScore(); };
+        for (const input of document.querySelectorAll("input"))
+            input.addEventListener("input", form.validatorFunc);
     }
+    
+    // on ajoute le score
+    for (const form of document.getElementsByTagName("form"))
+        form.dataset.score = 0;
     
     // create the "nbr-input" custom input
     for (const elem of document.getElementsByClassName("nbr-input")) {

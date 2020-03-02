@@ -2,54 +2,109 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css"/>
     <title>Points Eurobot 2020</title>
-<style>
-html,body { height: 100%;}
-iframe { width: 50%; height: 90%; }
-nav {
-  width: 100%;
-  display: flex;
-}
-nav * {
-  flex-grow: 1;
-  font-weight: 700;
-  min-height: 2rem;
-}
-</style>
   </head>
-  <body>
-    <nav>
-      <button id="btnJaune"  style="background-color: #FFFFA0">Equipe Jaune</button>
-      <button id="btnBleu" style="background-color: #A0A0FF">Equipe Bleue</button>
-      <button id="btnDeux"  style="background-color: #FFFFFF">Les deux</button>
-    </nav>
-    
-    <div style="display:flex; height: 100%;">
-      <iframe id="jaune" src="team.html#FFFFA0"></iframe>
-      <iframe id="bleu" src="team.html#A0A0FF"></iframe>
-    </div>
-    
-    <script>
-const iframeBleu = document.getElementById("bleu");
-const iframeJaune = document.getElementById("jaune");
-document.getElementById("btnBleu").addEventListener('click', () => {
-    iframeJaune.style.display = "none";
-    iframeBleu.style.display = "";
-    iframeBleu.style.width = "100%";
-});
-document.getElementById("btnJaune").addEventListener('click', () => {
-    iframeJaune.style.display = "";
-    iframeJaune.style.width = "100%";
-    iframeBleu.style.display = "none";
-});
-document.getElementById("btnDeux").addEventListener('click', () => {
-    iframeBleu.style.display = "";
-    iframeJaune.style.display = "";
-    iframeBleu.style.width = "50%";
-    iframeJaune.style.width = "50%";
-});
-    </script>
+  <body class="container">
+    <aside>
+      <p data-equipe="jaune">Equipe jaune : <span id="score-jaune">0</span></p>
+      <p data-equipe="bleue">Equipe bleue : <span id="score-bleue">0</span></p>
+    </aside>
+    <h1>Points pour Eurobot 2020</h1>
+    <h2>Les ports</h2>
+    <section>
+      <img src="img/bouees.png" class="img-fluid"/>
+      <h3>Port 1</h3>
+      <section>
+        <img src="img/port1.png" class="img-fluid"/>
+        <form name="port1-jaune" class="form-group" data-validator="port">
+          <h4>Equipe Jaune</h4>
+          <label for="JnbPort_1">Nombre de bouées dans le port</label>
+          <div class="nbr-input" data-id="JnbPort_1" data-name="nbPort"></div>
+          <label for="JnbChenaux_1">Nombre de bouées sur les chenaux</label>
+          <div class="nbr-input" data-id="JnbChenaux_1" data-name="nbChenaux"></div>
+          <label for="JnbPaires_1">Nombre de paires de bouées rouge/verte</label>
+          <div class="nbr-input" data-id="JnbPaires_1" data-name="nbPaires"></div>
+        </form>
+        <form name="port1-bleue" class="form-group" data-validator="port">
+          <h4>Equipe Bleue</h4>
+          <label for="BnbPort_1">Nombre de bouées dans le port</label>
+          <div class="nbr-input" data-id="BnbPort_1" data-name="nbPort"></div>
+          <label for="BnbChenaux_1">Nombre de bouées sur les chenaux</label>
+          <div class="nbr-input" data-id="BnbChenaux_1" data-name="nbChenaux"></div>
+          <label for="BnbPaires_1">Nombre de paires de bouées rouge/verte</label>
+          <div class="nbr-input" data-id="BnbPaires_1" data-name="nbPaires"></div>
+        </form>
+      </section>
+      <h3>Port 2</h3>
+      <section>
+        <img src="img/port2.png" class="img-fluid"/>
+        <form name="port2-jaune" class="form-group" data-validator="port">
+          <h4>Equipe Jaune</h4>
+          <label for="JnbPort_2">Nombre de bouées dans le port</label>
+          <div class="nbr-input" data-id="JnbPort_2" data-name="nbPort"></div>
+          <label for="JnbChenaux_2">Nombre de bouées sur les chenaux</label>
+          <div class="nbr-input" data-id="JnbChenaux_2" data-name="nbChenaux"></div>
+          <label for="JnbPaires_2">Nombre de paires de bouées rouge/verte sur les chenaux</label>
+          <div class="nbr-input" data-id="JnbPaires_2" data-name="nbPaires"></div>
+        </form>
+        <form name="port2-bleue" class="form-group" data-validator="port">
+          <h4>Equipe Bleue</h4>
+          <label for="BnbPort_2">Nombre de bouées dans le port</label>
+          <div class="nbr-input" data-id="BnbPort_2" data-name="nbPort"></div>
+          <label for="BnbChenaux_2">Nombre de bouées sur les chenaux</label>
+          <div class="nbr-input" data-id="BnbChenaux_2" data-name="nbChenaux"></div>
+          <label for="BnbPaires_2">Nombre de paires de bouées rouge/verte sur les chenaux</label>
+          <div class="nbr-input" data-id="BnbPaires_2" data-name="nbPaires"></div>
+        </form>
+      </section>
+    </section>
+    <h2>Les manches à air</h2>
+    <section>
+      <img src="img/mancheaair.png" class="img-fluid"/>
+      <form name="mancheaair-jaune" class="form-group" data-validator="mancheaair">
+          <h4>Equipe Jaune</h4>
+        <label for="JnbManchesaAir">Nombre de manches à air debout</label>
+        <div class="nbr-input" data-id="JnbManchesaAir" data-name="nbManchesaAir" data-max="2"></div>
+      </form>
+      <form name="mancheaair-bleue" class="form-group" data-validator="mancheaair">
+          <h4>Equipe Bleue</h4>
+        <label for="BnbManchesaAir">Nombre de manches à air debout</label>
+        <div class="nbr-input" data-id="BnbManchesaAir" data-name="nbManchesaAir" data-max="2"></div>
+      </form>
+    </section>
+    <h2>Le phare</h2>
+    <section>
+      <img src="img/phare.png" class="img-fluid"/>
+      <form name="phare-jaune" class="form-group" style="font-size: 1.2rem;" data-validator="phare">
+        <h4>Equipe Jaune</h4>
+        <div>
+          <input type="checkbox" id="JphareDepose" name="phareDepose"/>
+          <label for="JphareDepose">Le phare a été posé au début du match</label>
+        </div><div>
+          <input type="checkbox" id="JphareActif" name="phareActif"/>
+          <label for="JphareActif">Le phare a été activé pendant le match</label>
+        </div><div>
+          <input type="checkbox" id="JphareCorrect" name="phareCorrect"/>
+          <label for="JphareCorrect">Le phare est déployé et allumé correctement</label>
+        </div>
+      </form>
+      <form name="phare-bleue" class="form-group" style="font-size: 1.2rem;" data-validator="phare">
+        <h4>Equipe Bleue</h4>
+        <div>
+          <input type="checkbox" id="BphareDepose" name="phareDepose"/>
+          <label for="BphareDepose">Le phare a été posé au début du match</label>
+        </div><div>
+          <input type="checkbox" id="BphareActif" name="phareActif"/>
+          <label for="BphareActif">Le phare a été activé pendant le match</label>
+        </div><div>
+          <input type="checkbox" id="BphareCorrect" name="phareCorrect"/>
+          <label for="BphareCorrect">Le phare est déployé et allumé correctement</label>
+        </div>
+      </form>
+    </section>
+    <script src="main.js"></script>
   </body>
 </html>

@@ -29,3 +29,60 @@ input[type="checkbox"] {
     transform: scale(3);
     margin-right: 2rem;
 }
+
+form {
+    padding-left: 20px;
+    border-radius: 2rem;
+    margin: 1rem 0 0;
+    border: 1px solid #DDDDDD;
+}
+form[name*="jaune"] {
+    background-color: #FFFF0080;
+}
+form[name*="bleue"] {
+    background-color: #0000FF80;
+}
+
+form input {
+    margin-left: 20px;
+}
+
+form h4 {
+    padding: 5px 0 0;
+    font-weight: 600;
+}
+
+label {
+    padding-top: 0;
+}
+
+form div {
+    padding-bottom: 1rem;
+}
+
+form .alert {
+    margin-right: 1rem;
+}
+
+aside {
+    position: fixed;
+    top: 0;
+    right: 0;
+    border: 1px solid #DDDDDD;
+    font-size: 1.3rem;
+}
+aside p {
+    padding: 1rem 2rem;
+    margin: 0;
+}
+
+aside *[data-equipe="jaune"] {
+    background-color: #FFFF0080;
+}
+aside *[data-equipe="bleue"] {
+    background-color: #0000FF80;
+}
+
+span[id*="score"] {
+    font-weight: 700;
+}
