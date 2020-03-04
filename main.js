@@ -69,8 +69,8 @@ function getValidator(type) {
 }
 
 function updateScore() {
-    let scoreJaune = 0;
-    let scoreBleue = 0;
+    let scoreJaune = 5;
+    let scoreBleue = 5;
     for (const form of document.querySelectorAll('form[name*="jaune"]'))
         scoreJaune += parseInt(form.dataset.score);
     for (const form of document.querySelectorAll('form[name*="bleue"]'))
