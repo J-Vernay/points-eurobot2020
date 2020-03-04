@@ -69,8 +69,8 @@ function getValidator(type) {
 }
 
 function updateScore() {
-    let scoreJaune = 5;
-    let scoreBleue = 5;
+    let scoreJaune = 0;
+    let scoreBleue = 0;
     for (const form of document.querySelectorAll('form[name*="jaune"]'))
         scoreJaune += parseInt(form.dataset.score);
     for (const form of document.querySelectorAll('form[name*="bleue"]'))
@@ -79,10 +79,10 @@ function updateScore() {
     const scoreEstimeBleue = document.forms["score-estime-bleue"].elements.scoreEstime.value;
     const bonusJaune = Math.ceil(Math.max(0, (0.3*scoreJaune) - Math.abs(scoreJaune - scoreEstimeJaune)));
     const bonusBleue = Math.ceil(Math.max(0, (0.3*scoreBleue) - Math.abs(scoreBleue - scoreEstimeBleue)));
-    const totalJaune = scoreJaune + bonusJaune;
-    const totalBleue = scoreBleue + bonusBleue;
-    document.getElementById("score-jaune").innerHTML = `${totalJaune} (${scoreJaune} +${bonusJaune})`;
-    document.getElementById("score-bleue").innerHTML = `${totalBleue} (${scoreBleue} +${bonusBleue})`;
+    const totalJaune = scoreJaune + bonusJaune + 5;
+    const totalBleue = scoreBleue + bonusBleue + 5;
+    document.getElementById("score-jaune").innerHTML = `${totalJaune} (${scoreJaune} +${bonusJaune} +5)`;
+    document.getElementById("score-bleue").innerHTML = `${totalBleue} (${scoreBleue} +${bonusBleue} +5)`;
 }
 
 window.addEventListener('DOMContentLoaded', ()=> {
